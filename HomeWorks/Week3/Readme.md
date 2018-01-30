@@ -1,5 +1,5 @@
-#Week 3. Schema Design
-##HomeWork 3-1
+# Week 3. Schema Design
+## HomeWork 3-1
 Download Handouts:
 <a href="https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/students.json">students.json</a>
 
