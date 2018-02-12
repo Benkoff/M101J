@@ -20,6 +20,9 @@ db.zips.aggregate([{$sort:{state:1, city: 1}}])
 ```
 
 ## HomeWork 5.1
+<a href = "https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/posts.json">
+Get here</a> and import the data to the database
+
 ```
 mongoimport --drop -d blog -c posts posts.json
 mongo
@@ -33,6 +36,9 @@ db.posts.aggregate({$unwind:"$comments"},{$group:{_id:"$comments.author", num:{$
 </details>
 
 ## HomeWork 5.2
+<a href = "https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/small_zips.json">
+Download</a> and import data: 
+
 ```
 mongoimport --drop -d test -c zips small_zips.json
 mongo
@@ -48,7 +54,10 @@ db.posts.aggregate({$match:{state:{$or:[{"CA"},{"NY"}]}}},{$group:{_id:{state:"$
 
 ## HomeWork 5.3
 
-Before you run Homework53.java import data to your database:
+Before you run Homework53.java, 
+<a href="https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/Small_grades_file.zip">
+download</a> and import data to your database:
+
 ```
 mongoimport --drop -d test -c grades2 grades.json
 ```
@@ -56,3 +65,17 @@ mongoimport --drop -d test -c grades2 grades.json
 <summary>HW 5.3 answer is here</summary>
 <p>{ "_id" : 1, "avg" : 64.50642324269174 } </p> 
 </details>
+
+## HomeWork 5.4
+
+<a href="https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/zips.json">
+Download Handouts</a> to the database:
+
+```
+mongoimport --drop -d test -c zips zips.json
+```
+<details>
+<summary>HW 5.4 answer is here</summary>
+<p> </p> 
+</details>
+
