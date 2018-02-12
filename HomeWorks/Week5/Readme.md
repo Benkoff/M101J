@@ -19,8 +19,15 @@ db.zips.aggregate([{$match:{"pop":{$gt:100000}}}])
 db.zips.aggregate([{$sort:{state:1, city: 1}}])
 ```
 
+HomeWork 5.1
+```
+mongoimport --drop -d blog -c posts posts.json
+mongo
 
+use blog
+db.posts.aggregate({$unwind:"$comments"},{$group:{_id:"$comments.author", num:{$sum:1}}},{$sort:{num:-1}},{$limit:1})
+```
 <details>
-<summary>Nothing here</summary>
-<p>null</p> 
+<summary>HW 5.1 answer is here</summary>
+<p>{ "_id" : "Elizabet Kleine", "num" : 503 }</p> 
 </details>
