@@ -43,7 +43,7 @@ db.posts.aggregate({$match:{state:{$or:[{"CA"},{"NY"}]}}},{$group:{_id:{state:"$
 ```
 <details>
 <summary>HW 5.2 answer is here</summary>
-<p> </p> 
+<p>{ "_id" : 0, "pop" : 44804.782608695656 } </p> 
 </details>
 
 ## HomeWork 5.3
@@ -54,5 +54,5 @@ mongoimport --drop -d test -c grades2 grades.json
 ```
 <details>
 <summary>HW 5.3 answer is here</summary>
-<p> { "_id" : 1, "avg" : 64.50642324269174 } </p> 
+<p>{ "_id" : 1, "avg" : 64.50642324269174 } </p> 
 </details>
