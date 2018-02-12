@@ -69,13 +69,26 @@ mongoimport --drop -d test -c grades2 grades.json
 ## HomeWork 5.4
 
 <a href="https://university.mongodb.com/static/MongoDB_2018_M101J_January/handouts/zips.json">
-Download Handouts</a> to the database:
+Download Handouts</a> to the database.
 
 ```
 mongoimport --drop -d test -c zips zips.json
+
+db.zips.aggregate([
+    {$project: {first_char: {$substr : ["$city",0,1]},pop : 1, city : "$city", zip : "$_id", state : 1}},
+	{$match: {$or: [
+	    {first_char:"B"}, 
+	    {first_char:"D"}, 
+	    {first_char:"O"}, 
+	    {first_char:"G"}, 
+	    {first_char:"N"},
+	    {first_char:"M"}]}},
+    {$group: {_id: null, pop: {$sum: "$pop"}}}
+])
 ```
+
 <details>
 <summary>HW 5.4 answer is here</summary>
-<p> </p> 
+<p>{ "_id" : null, "pop" : 76394871 } </p> 
 </details>
 
