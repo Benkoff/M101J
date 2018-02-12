@@ -19,7 +19,7 @@ db.zips.aggregate([{$match:{"pop":{$gt:100000}}}])
 db.zips.aggregate([{$sort:{state:1, city: 1}}])
 ```
 
-HomeWork 5.1
+## HomeWork 5.1
 ```
 mongoimport --drop -d blog -c posts posts.json
 mongo
@@ -30,4 +30,29 @@ db.posts.aggregate({$unwind:"$comments"},{$group:{_id:"$comments.author", num:{$
 <details>
 <summary>HW 5.1 answer is here</summary>
 <p>{ "_id" : "Elizabet Kleine", "num" : 503 }</p> 
+</details>
+
+## HomeWork 5.2
+```
+mongoimport --drop -d test -c zips small_zips.json
+mongo
+
+use test
+db.posts.aggregate({$match:{state:{$or:[{"CA"},{"NY"}]}}},{$group:{_id:{state:"$state",city:"$city"},pop:{$sum:"$pop"}}},
+{$match:{pop:{$gt:25000}}},{$group:{_id : null,pop:{$avg:"$pop"}}})
+```
+<details>
+<summary>HW 5.2 answer is here</summary>
+<p> </p> 
+</details>
+
+## HomeWork 5.3
+
+Before you run Homework53.java import data to your database:
+```
+mongoimport --drop -d test -c grades2 grades.json
+```
+<details>
+<summary>HW 5.3 answer is here</summary>
+<p> { "_id" : 1, "avg" : 64.50642324269174 } </p> 
 </details>

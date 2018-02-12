@@ -17,7 +17,7 @@ import java.util.List;
 /*
  * Created by Ben Novikov on 2018-01-30
  */
-public class homework31 {
+public class Homework31 {
 
     public static void main(String[] args) {
         MongoClient client = new MongoClient();
