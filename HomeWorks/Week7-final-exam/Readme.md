@@ -143,16 +143,16 @@ Check all that apply.
 <summary>The answer is here</summary>
 <p> 
 * Add an index on last_name, first_name if one does not already exist. -- indexes affect reading not writing speed. 
-Negative
+Negative </br>
 * Remove all indexes from the collection, leaving only the index on _id in place -- removing additional logic should 
-probably speed the whole system up. Positive
-* Provide a hint to MongoDB that it should not use an index for the inserts -- negative. lol
+probably speed the whole system up. Positive </br>
+* Provide a hint to MongoDB that it should not use an index for the inserts -- negative. lol </br>
 * Set w=0, j=false on writes -- The w option requests acknowledgement that the write operation has propagated to a 
 specified number of mongod instances or to mongod instances with specified tags. The j option requests acknowledgement 
 from MongoDB that the write operation has been written to the journal. So waiting for nothing definitely takes less time 
-than waiting for any response we could get at all. Positive
+than waiting for any response we could get at all. Positive </br>
 * Build a replica set and insert data into the secondary nodes to free up the primary nodes -- A secondary maintains a 
-copy of the primary's data set. Negative </p> 
+copy of the primary's data set. Negative </br> </p> 
 </details>
 
 ## Question 7
