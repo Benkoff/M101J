@@ -22,9 +22,39 @@ For reference, the number of email messages from Andrew Fastow to John Lavorato 
 </details>
 
 ## Question 2
+
+Please use the Enron dataset you imported for the previous problem. For this question you will use the aggregation framework to figure out pairs of people that tend to communicate a lot. To do this, you will need to unwind the To list for each message.
+
+This problem is a little tricky because a recipient may appear more than once in the To list for a message. You will need to fix that in a stage of the aggregation before doing your grouping and counting of (sender, recipient) pairs.
+
+Which pair of people have the greatest number of messages in the dataset?
+
+#### Shell query: </br>
+``` 
+db.messages.aggregate([
+	{$project: 
+		{from: "$headers.From", to: "$headers.To"}
+	},
+	{$unwind: "$to"},
+	{$group : 
+		{_id : 
+			{_id: "$_id", from: "$from", to: "$to" }
+		}
+	},
+	{$group : 
+		{_id : 
+			{from: "$_id.from", to: "$_id.to" }, 
+			count: {$sum: 1}
+		}
+	},
+	{$sort: {count: -1}},
+	{$limit: 1}
+], {allowDiskUse: true})
+```
+
 <details>
 <summary>The answer is here</summary>
-<p> </p> 
+<p> { "_id" : { "from" : "susan.mara@enron.com", "to" : "jeff.dasovich@enron.com" }, "count" : 750 } </p> 
 </details>
 
 ## Question 3
