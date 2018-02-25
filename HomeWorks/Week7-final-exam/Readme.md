@@ -86,9 +86,20 @@ then the validation will not work.
 </details>
 
 ## Question 4
+
+```
+// from the mongo shell
+use blog;
+db.posts.drop();
+
+// from command line
+mongoimport --drop -d blog -c posts posts.json
+```
+run package io.github.benkoff.mongoclasses.week7.question4 public class BlogController
+
 <details>
 <summary>The answer is here</summary>
-<p> </p> 
+<p> evaluated by MongoProc </p> 
 </details>
 
 ## Question 5

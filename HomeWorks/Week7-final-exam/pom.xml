@@ -28,5 +28,37 @@
             <version>3.6.1</version>
         </dependency>
 
+        <!--Q4 dependency block starts here-->
+        <!--and it needs... ... mongo 3.2.2 (surprise!)-->
+        <!--<dependency>-->
+            <!--<groupId>org.mongodb</groupId>-->
+            <!--<artifactId>mongodb-driver</artifactId>-->
+            <!--<version>3.2.2</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.19</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <!--Q4 dependency block ends here-->
     </dependencies>
 </project>

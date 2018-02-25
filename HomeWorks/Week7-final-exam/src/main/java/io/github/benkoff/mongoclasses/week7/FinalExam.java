@@ -2,7 +2,6 @@ package io.github.benkoff.mongoclasses.week7;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -23,7 +22,6 @@ public class FinalExam {
         MongoDatabase db = client.getDatabase(databaseName);
         MongoCollection<Document> messages = db.getCollection(collectionName);
         try {
-            Set<String> senders;
             List<Document> headers = new ArrayList<>();
 
 //            try (MongoCursor<Document> cursor = messages.find().iterator()) {
@@ -33,11 +31,7 @@ public class FinalExam {
 //                }
 //            }
 
-            /*
-
-             */
-            System.out.println(headers.isEmpty() ? "nothing found" : headers.size());
-
+            System.out.println(headers.isEmpty() ? "nothing found" : headers.size() + " entries");
         } finally {
             client.close();
         }
