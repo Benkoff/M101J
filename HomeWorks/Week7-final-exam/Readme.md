@@ -103,15 +103,56 @@ run package io.github.benkoff.mongoclasses.week7.question4 public class BlogCont
 </details>
 
 ## Question 5
+
+The query against the collection uses all fields except _id: 
+```
+db.stuff.find({'a':{'$lt':10000}, 'b':{'$gt': 5000}}, {'a':1, 'c':1}).sort({'c':-1})
+```
 <details>
 <summary>The answer is here</summary>
-<p> </p> 
+<p>so all the indicies except one (_id based) could be used to assist the query</p> 
 </details>
 
 ## Question 6
+
+Suppose you have a collection of students of the following form:
+```
+{
+    "_id" : ObjectId("50c598f582094fb5f92efb96"),
+    "first_name" : "John",
+    "last_name" : "Doe",
+    "date_of_admission" : ISODate("2010-02-21T05:00:00Z"),
+    "residence_hall" : "Fairweather",
+    "has_car" : true,
+    "student_id" : "2348023902",
+    "current_classes" : [
+        "His343",
+        "Math234",
+        "Phy123",
+        "Art232"
+    ]
+}
+```
+Now suppose that basic inserts into the collection, which only include the last name, first name and student_id, 
+are too slow (we can't do enough of them per second from our program). 
+And while there are many potential application/hardware solutions such as batching, increasing bandwidth (or RAM), etc., 
+which of the following listed options could potentially **improve the speed of inserts**?
+
+Check all that apply.
 <details>
 <summary>The answer is here</summary>
-<p> </p> 
+<p> 
+* Add an index on last_name, first_name if one does not already exist. -- indexes affect reading not writing speed. 
+Negative
+* Remove all indexes from the collection, leaving only the index on _id in place -- removing additional logic should 
+probably speed the whole system up. Positive
+* Provide a hint to MongoDB that it should not use an index for the inserts -- negative. lol
+* Set w=0, j=false on writes -- The w option requests acknowledgement that the write operation has propagated to a 
+specified number of mongod instances or to mongod instances with specified tags. The j option requests acknowledgement 
+from MongoDB that the write operation has been written to the journal. So waiting for nothing definitely takes less time 
+than waiting for any response we could get at all. Positive
+* Build a replica set and insert data into the secondary nodes to free up the primary nodes -- A secondary maintains a 
+copy of the primary's data set. Negative </p> 
 </details>
 
 ## Question 7
