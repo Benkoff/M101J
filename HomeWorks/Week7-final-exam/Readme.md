@@ -13,9 +13,11 @@ Construct a query to calculate the number of messages sent by Andrew Fastow, CFO
 
 For reference, the number of email messages from Andrew Fastow to John Lavorato (john.lavorato@enron.com) was 1.
 
+### Compass query: ``` {'headers.From': RegExp('andrew.fastow@enron.com'), 'headers.To': RegExp('jeff.skilling@enron.com')} ```
+
 <details>
 <summary>The answer is here</summary>
-<p> </p> 
+<p> 3 </p> 
 </details>
 
 ## Question 2
